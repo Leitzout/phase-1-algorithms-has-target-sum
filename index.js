@@ -1,13 +1,37 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+    // Create an object for nums already seen
+const seenNumbers = {};
+    // iterate through each number in array
+  for (let i = 0; i < array.length; i++) {
+    // for current number, identify complement that adds to the target  (complement = target - num)
+    const complement = target - array[i];
+    // check if any key on object is our complement
+    if (seenNumbers[complement]) return true
+    // if so, return true 
+    // otherwise, add that number to the object
+    seenNumbers[array[i]] = true;
+  }
+    // if reached the end of array, return false
+    return false;
 }
 
 /* 
   Write the Big O time complexity of your function here
+  runtime: O(n^2) *not great as array gets bigger
+  space: O(n)
 */
 
 /* 
-  Add your pseudocode here
+Psueodocode 
+
+  - Create an object for nums already seen
+  - iterate through each number in array
+  - for current number, identify complement that adds to the target  (complement = target - num)
+  - icheck if any key on object is the complement 
+    - if so, return true 
+    - otherwise, add that number to the object 
+
+  - if reached the end of array, return false
 */
 
 /*
